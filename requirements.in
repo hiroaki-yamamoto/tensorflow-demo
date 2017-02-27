@@ -3,3 +3,4 @@ flake8-docstrings
 tensorflow-gpu
 keras
 h5py
+pillow
