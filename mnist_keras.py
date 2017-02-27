@@ -19,7 +19,7 @@ nb_epoch = 12  # Number of times to learn and refresh the network.
 # multiple filters at different position.
 # In general, # of filters is power of 2.
 
-nb_filters = 32  # Number of Convolution filter i.e. # of neurons?
+nb_filters = 64  # Number of Convolution filter i.e. # of neurons?
 
 (width, height) = (28, 28)  # The size of the image i.e. 28 px x 28 px
 
@@ -65,6 +65,10 @@ model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1],
                         border_mode='valid',
                         input_shape=input_shape))
 model.add(Activation('relu'))
+model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1]))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+
 model.add(Convolution2D(nb_filters, kernel_size[0], kernel_size[1]))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=pool_size))
